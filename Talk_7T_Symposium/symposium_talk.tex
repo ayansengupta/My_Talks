@@ -1,5 +1,16 @@
 \documentclass{beamer}
 \usefonttheme{serif}
+\usepackage{biblatex}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+\setbeamercolor{footline}{fg=blue}
+\setbeamerfont{footline}{series=\bfseries}
+
 
 \title{What is the optimal spatial resolution for BOLD fMRI decoding analyses at 7T?}
 \author{Ayan Sengupta\inst{1}}
@@ -23,11 +34,32 @@
 \begin{document}
 \frame{\titlepage}
   \begin{frame}
-    \frametitle{This is the first slide}
+    \frametitle{Orientation Decoding in primary visual cortex (V1)}
+    Reasons for V1 ROI:
+    \begin{itemize}
+        \item Most extensively studied paradigm
+        \item Classic studies of Kamitani and Tong (2005) and Haynes and Rees (2005).
+        \item Reliable Orientation Decoding from:
+            \begin{itemize}
+                \item 3 mm isotropic voxels (Kamitani and Tong, 2005)
+                \item 2 mm isotropic voxels (Alink et al., 2013)
+                \item 1 mm isotropic voxels (Swisher et al., 2010)
+            \end{itemize}
+    \end{itemize}
     %Content goes here
   \end{frame}
     \begin{frame}
-        \frametitle{This is the second slide}
+        \frametitle{Stimulus}
+            \begin{center}
+                \includegraphics[height=4cm]{pics/stimulus}
+            \end{center}
+            \begin{itemize}
+                \item 30 Trials = 1 Experimental run
+                \item Number of runs = 10
+                \item Total scan time = 40min
+                \item 4 orientations in each hemifield (0,45,90 \& 135) with random phase shifts
+            \end{itemize}
+
     \end{frame}
  
   \begin{frame}
@@ -36,4 +68,5 @@
     %More content goes here
   \end{frame}
 % etc
+
 \end{document}
