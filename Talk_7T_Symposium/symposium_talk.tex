@@ -183,8 +183,18 @@
 
   \begin{frame}
     \frametitle{Dependence on temporal SNR}
-
+        \begin{center}
+            \includegraphics[height=7cm]{pics/tSNR_vs_accuracy}
+        \end{center}
     \end{frame}    
+
+  \begin{frame}
+    \frametitle{Mean Pecrentage BOLD signal change}
+        \begin{center}
+            \includegraphics[height=6cm]{pics/signal_change}
+        \end{center}
+    \end{frame} 
+
 
   \begin{frame}
     \frametitle{Classification Results after Spatial Filtering}
@@ -219,7 +229,8 @@
         \begin{center}
         \begin{itemize}
          \item Optimal Acquisition Resolution is $\approx$ 2.5mm iso.
-         \item 
+         \item Aliasing is improbable. Highest accuracy of band-pass 
+         components $\approx$ 5-8mm FWHM for all resolutions.
          \item Low spatial frequency components contribute to noise.
          \item Down-sampling high resolution fMRI into lower resolutions 
          does not help decoding, orientation signal not exclusively high frequency.
@@ -227,5 +238,17 @@
         \end{itemize}  
         \end{center}
     \end{frame} 
-                    
+
+  \begin{frame}
+        \begin{center}
+            Questions
+        \end{center}
+    \end{frame} 
+    
+  \begin{frame}
+    \frametitle{Discussion: Nyquist Sampling Theory}
+        \begin{center}
+            \includegraphics[height=5cm]{pics/nyquist}
+        \end{center}
+    \end{frame}                        
 \end{document}
