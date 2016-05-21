@@ -14,7 +14,7 @@
 \setbeamerfont{footline}{series=\bfseries}
 
 
-\title{Orientation Decoding at multiple resolutions at 7T}
+\title{What is the optimal spatial resolution for BOLD fMRI decoding analyses at 7T?}
 \author{Ayan Sengupta\inst{1}}
 \institute[Affiliations] % (optional)
 {
@@ -41,7 +41,7 @@
         \includegraphics[height=5cm]{../pictures/exp_frame}
     \end{center}
     \begin{itemize}
-        \item Most extensively studied paradigm.
+        \item An extensively studied paradigm.
         \item Important studies like Kamitani and Tong (2005), Haynes and Rees (2005),
         Swisher et al., (2010), Alink et al., (2013) etc.
         %~ \item Reliable Orientation Decoding from:
@@ -60,35 +60,48 @@
             \end{center}
             \begin{itemize}
                 \item 30 Trials = 1 Experimental run
-                \item Number of runs = 10
-                \item Total scan time = 40min
+                \item Number of runs = 10; Total scan time = 40min
                 \item 4 orientations in each hemifield (0\textdegree, 45\textdegree, 90\textdegree \& 135\textdegree) with random phase shifts
+                \item Number of participants = 7
             \end{itemize}
 
     \end{frame}
  
+  %~ \begin{frame}
+    %~ \frametitle{General Workflow of Orientation decoding analysis}
+        %~ \begin{itemize}
+            %~ \item EPI acquisition in one particular resolution
+            %~ \item Volumetric Gaussian filtering with increase in kernel width (expressed in FWHM)
+            %~ \item Within-subject leave-one-run-out cross-validation with LinearSVM classifier
+            %~ \item Conclusion about the spatial scale of the Orientation specific signals 
+        %~ \end{itemize}  
+    %~ \end{frame}
+
   \begin{frame}
-    \frametitle{General Workflow of Orientation decoding analysis}
+    \frametitle{Spatial smoothing does not hurt Orientation decoding}
+        \begin{center}
+            \includegraphics[height=4cm]{../pictures/grid_3mm_op_de_beeck}
+        \end{center}
         \begin{itemize}
-            \item EPI acquisition in one particular resolution
-            \item Volumetric Gaussian filtering with increase in kernel width (expressed in FWHM)
-            \item Within-subject leave-one-run-out cross-validation with LinearSVM classifier
-            \item Conclusion about the spatial scale of the Orientation specific signals 
+            \item Reliable Orientation decoding is possible with 3mm iso voxel size. (Kamitani and Tong, 2005 and Haynes and Rees, 2005)
+            \item Above chance level decoding could be performed after spatial Gaussian smoothing.
         \end{itemize}  
     \end{frame}
 
-  %~ \begin{frame}
-    %~ \frametitle{High field fMRI unveils orientation columns in humans}
-        %~ \begin{center}
-            %~ \includegraphics[height=4cm]{../pictures/Yacoub_pinwheel}
-        %~ \end{center}
-        %~ \begin{itemize}
-            %~ \item Yacoub et al. (2008) used high field strength (7T)
-            %~ \item Voxel dimensions - 0.5mm x 0.5mm x 3.0mm
-            %~ \item The pinwheel pattern maps were reproducible
-        %~ \end{itemize}  
-    %~ \end{frame}
-%~ 
+
+ \begin{frame}
+    \frametitle{High field fMRI unveils orientation columns in humans}
+        \begin{center}
+            \includegraphics[height=4cm]{../pictures/Yacoub_pinwheel}
+        \end{center}
+        \begin{itemize}
+            \item Yacoub et al. (2008) used high field strength (7T)
+            \item Voxel dimensions - 0.5mm x 0.5mm x 3.0mm
+            \item The pinwheel pattern maps were reproducible
+            \item Smaller the voxel size = Better Orientation Signals from the Orientation Columns
+        \end{itemize}  
+    \end{frame}
+
   %~ \begin{frame}
     %~ \frametitle{Impressions about Optimal Acquisition Resolution}
         %~ \begin{itemize}
@@ -98,9 +111,10 @@
             %~ smoothing is performed.
         %~ \end{itemize}  
     %~ \end{frame}
-%~ 
-%~ 
-%~ 
+
+
+
+
   %~ \begin{frame}
     %~ \frametitle{Spatial scale of Orientation specific signals}
         %~ \begin{center}
@@ -112,7 +126,7 @@
          %~ (Swisher et al., 2010).
         %~ \end{itemize}  
     %~ \end{frame}
-%~ 
+
   %~ \begin{frame}
     %~ \frametitle{Possible Reasons of broadband nature of Orientation signals}
         %~ \begin{itemize}
@@ -125,19 +139,9 @@
         %~ \end{itemize}  
     %~ \end{frame}
 
-  \begin{frame}
-    \frametitle{Simulation Study by Chaimow et al., 2010}
-        \begin{center}
-            \includegraphics[height=5.5cm]{../pictures/shmuel_model}
-        \end{center}
-        \begin{itemize}
-         \item Chaimow et al., 2010 simulated fMRI data to model decoding 
-         of ODCs at different acquisition resolutions.
-        \end{itemize}  
-    \end{frame}
 
   \begin{frame}
-    \frametitle{Empirical Study \textit{(under review)}}
+    \frametitle{Empirical Study \textit{(under revision)}}
         \begin{center}
             \includegraphics[height=3cm]{../pictures/acquisition}
         \end{center}
@@ -152,11 +156,21 @@
   \begin{frame}
     \frametitle{Region of interest localization}
         \begin{center}
+            \includegraphics[height=5cm]{../pictures/polar_maps}
+        \end{center}
+                \begin{itemize}
+         \item Retinotopic mapping to manually delineate V1 region.
+        \end{itemize} 
+    \end{frame} 
+
+  \begin{frame}
+    \frametitle{Region of interest localization}
+        \begin{center}
             \includegraphics[height=3cm]{../pictures/ROI}
         \end{center}
                 \begin{itemize}
-         \item Retinotopic mapping to delineate V1 region.
-         \item Susceptibility weighted imaging to localize veins.
+         \item V1 mask in volumetric space.
+         %~ \item Susceptibility weighted imaging to localize veins.
         \end{itemize} 
     \end{frame} 
     
@@ -166,6 +180,134 @@
             \includegraphics[height=7cm]{../pictures/classification}
         \end{center}
     \end{frame}
+
+  \begin{frame}
+    \frametitle{Classification Results (Fixed Number of Voxels)}
+        \begin{center}
+            \includegraphics[height=7cm]{../pictures/fixed_voxels}
+        \end{center}
+    \end{frame}    
+
+  \begin{frame}
+    \frametitle{Simulation Study by Chaimow et al., 2010}
+        \begin{center}
+            \includegraphics[height=5.5cm]{../pictures/shmuel_model}
+        \end{center}
+        \begin{itemize}
+         \item Chaimow et al., 2010 simulated fMRI data to model decoding 
+         of ODCs at different acquisition resolutions.
+        \end{itemize}  
+    \end{frame}
+
+  \begin{frame}
+    \frametitle{Dependence on temporal SNR}
+        \begin{center}
+            \includegraphics[height=7cm]{../pictures/tSNR_vs_accuracy}
+        \end{center}
+    \end{frame}    
+
+  \begin{frame}
+    \frametitle{Classification Results after Spatial Filtering}
+        \begin{center}
+            \includegraphics[height=5.5cm]{../pictures/spatial_smoothing}
+        \end{center}
+    \end{frame} 
+
+  \begin{frame}
+    \frametitle{Classification Results after Spatial Filtering}
+        \begin{center}
+            \includegraphics[height=5.5cm]{../pictures/spatial_smoothing_multires}
+        \end{center}
+    \end{frame} 
+
+
+  \begin{frame}
+    \frametitle{Contribution of veins to decoding}
+        \begin{center}
+            \includegraphics[height=7cm]{../pictures/veins}
+        \end{center}
+    \end{frame} 
+
+  \begin{frame}
+    \frametitle{Conclusions}
+        \begin{center}
+        \begin{itemize}
+         \item Optimal Acquisition Resolution is $\approx$ 2.5mm iso.
+         \item Aliasing is improbable. Highest accuracy of band-pass 
+         components $\approx$ 5-8mm FWHM for all resolutions.
+         \item Low spatial frequency components contribute to noise.
+         %~ \item Down-sampling high resolution fMRI into lower resolutions 
+         %~ does not help decoding, orientation signal not exclusively high frequency.
+         \item Veins carry orientation specific signal.
+         \item Orientation discriminating signals are broadband, activity patterns 
+         could be found at spatial scales of individual columns to about a centimeter. 
+        \end{itemize}  
+        \end{center}
+    \end{frame} 
+
+  \begin{frame}
+    \frametitle{In Preparation}
+        \begin{center}
+        \begin{itemize}
+         \item Comparison of field strength (7T vs 3T) in decoding performance
+         \item Does decoding analysis in different ROI show similar characteristics?
+        \end{itemize}  
+        \end{center}
+    \end{frame} 
+
+
+
+
+  \begin{frame}
+    \frametitle{Acknowledgements}
+        \begin{itemize}
+         \item Jun. Prof. Dr. Michael Hanke
+         \item Renat Yakupov
+         \item Prof. Dr. Stefan Pollmann
+         \item Prof. Dr. Oliver Speck
+        \end{itemize}
+        \vspace{1cm}
+        \begin{center} 
+            \includegraphics[height=1.5cm]{../pictures/funding}
+        \end{center}
+    \end{frame}
+
+
+  \begin{frame}
+        \begin{center}
+            Questions
+        \end{center}
+    \end{frame} 
+
+
+  \begin{frame}
+        \begin{center}
+            Discussions
+        \end{center}
+    \end{frame}
+
+    
+  \begin{frame}
+    \frametitle{Nyquist Sampling Theory}
+        \begin{center}
+            \includegraphics[height=5cm]{../pictures/nyquist}
+        \end{center}
+    \end{frame}   
+
+
+  \begin{frame}
+    \frametitle{Spatial Re-sampling to Other Resolutions}
+        \begin{center}
+            \includegraphics[height=7cm]{../pictures/resampling}
+        \end{center}
+    \end{frame}
+    
+  \begin{frame}
+    \frametitle{Mean Pecrentage BOLD signal change}
+        \begin{center}
+            \includegraphics[height=6cm]{../pictures/signal_change}
+        \end{center}
+    \end{frame} 
 
   \begin{frame}
         \begin{center}
@@ -225,149 +367,5 @@
             \includegraphics[height=5.5cm]{../pictures/nested_validation}
         \end{center}     
     \end{frame}  
-
-
-  \begin{frame}
-    \frametitle{Confusion Matrix}
-        \begin{center}
-            \includegraphics[height=5.5cm]{../pictures/confusion_matrix}
-        \end{center}     
-    \end{frame}  
-
-
-  \begin{frame}
-    \frametitle{Classification Results (V1)}
-        \begin{center}
-            \includegraphics[height=7cm]{../pictures/classification}
-        \end{center}
-    \end{frame}
-
-    
-  \begin{frame}
-    \frametitle{Classification Results (Fixed Number of Voxels)}
-        \begin{center}
-            \includegraphics[height=7cm]{../pictures/fixed_voxels}
-        \end{center}
-    \end{frame}    
-
-    
-  \begin{frame}
-    \frametitle{Classification Results after Spatial Filtering}
-        \begin{center}
-            \includegraphics[height=5.5cm]{../pictures/spatial_smoothing}
-        \end{center}
-    \end{frame} 
-
-  \begin{frame}
-    \frametitle{Classification Results after Spatial Filtering}
-        \begin{center}
-            \includegraphics[height=7cm]{../pictures/filtering_steps}
-        \end{center}
-    \end{frame} 
-
-  \begin{frame}
-    \frametitle{Classification Results after Spatial Filtering}
-        \begin{center}
-            \includegraphics[height=5.5cm]{../pictures/spatial_smoothing_multires}
-        \end{center}
-    \end{frame} 
-
-  \begin{frame}
-    \frametitle{Spatial smoothing does not hurt Orientation decoding}
-        \begin{center}
-            \includegraphics[height=4cm]{../pictures/grid_3mm_op_de_beeck}
-        \end{center}
-        \begin{itemize}
-            \item Reliable Orientation decoding is possible with 3mm iso voxel size. (Kamitani and Tong, 2005 and Haynes and Rees, 2005)
-            \item Above chance level decoding could be performed after spatial Gaussian smoothing.
-        \end{itemize}  
-    \end{frame}
-
-
-  \begin{frame}
-    \frametitle{Contribution of veins to decoding}
-        \begin{center}
-            \includegraphics[height=7cm]{../pictures/veins}
-        \end{center}
-    \end{frame} 
-
-  \begin{frame}
-    \frametitle{Conclusions}
-        \begin{center}
-        \begin{itemize}
-         \item Optimal Acquisition Resolution is $\approx$ 2.5mm iso.
-         \item Aliasing is improbable. Highest accuracy of band-pass 
-         components $\approx$ 5-8mm FWHM for all resolutions.
-         \item Low spatial frequency components contribute to noise.
-         %~ \item Down-sampling high resolution fMRI into lower resolutions 
-         %~ does not help decoding, orientation signal not exclusively high frequency.
-         \item Veins carry little orientation specific signal.
-        \end{itemize}  
-        \end{center}
-    \end{frame} 
-
-  \begin{frame}
-    \frametitle{Acknowledgements}
-        \begin{itemize}
-         \item Jun. Prof. Dr. Michael Hanke
-         \item Renat Yakupov
-         \item Prof. Dr. Stefan Pollmann
-         \item Prof. Dr. Oliver Speck
-        \end{itemize}
-        \vspace{1cm}
-        \begin{center} 
-            \includegraphics[height=1.5cm]{../pictures/funding}
-        \end{center}
-    \end{frame}
-
-
-  \begin{frame}
-        \begin{center}
-            Questions
-        \end{center}
-    \end{frame} 
-    
-  \begin{frame}
-    \frametitle{Discussion: Nyquist Sampling Theory}
-        \begin{center}
-            \includegraphics[height=5cm]{../pictures/nyquist}
-        \end{center}
-    \end{frame}                        
-
-  \begin{frame}
-    \frametitle{Discussion: Spatial smoothing does not hurt Orientation decoding}
-        \begin{center}
-            \includegraphics[height=4cm]{../pictures/grid_3mm_op_de_beeck}
-        \end{center}
-        \begin{itemize}
-            \item Reliable Orientation decoding is possible with 3mm iso voxel size. (Kamitani and Tong, 2005 and Haynes and Rees, 2005)
-            \item Above chance level decoding could be performed after spatial Gaussian smoothing.
-        \end{itemize}  
-    \end{frame}
-
-
-
-  \begin{frame}
-    \frametitle{Discussion: Spatial Re-sampling to Other Resolutions}
-        \begin{center}
-            \includegraphics[height=7cm]{../pictures/resampling}
-        \end{center}
-    \end{frame}
-    
-    
-  \begin{frame}
-    \frametitle{Dependence on temporal SNR}
-        \begin{center}
-            \includegraphics[height=7cm]{../pictures/tSNR_vs_accuracy}
-        \end{center}
-    \end{frame}    
-
-  \begin{frame}
-    \frametitle{Mean Pecrentage BOLD signal change}
-        \begin{center}
-            \includegraphics[height=6cm]{../pictures/signal_change}
-        \end{center}
-    \end{frame} 
+                         
 \end{document}
-   
-    
